@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  /* Color palette */
+  --bg-primary: #0F0F14;
+  --bg-secondary: #181824;
+  --bg-tertiary: #20202D;
+  --bg-hover: #29293A;
+  --accent-primary: #7C3AED;
+  --accent-primary-hover: #8B5CF6;
+  --accent-secondary: #06B6D4;
+  --accent-secondary-hover: #22D3EE;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --border: #2A2A38;
+  --border-light: #38384A;
+  --glass: rgba(255,255,255,0.03);
+}
+
+html,body,#root{height:100%;}
+body{
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Glass panels */
+.glass{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(8px) saturate(115%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.glass-panel{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+/* Top nav */
+.top-nav{
+  display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);background:linear-gradient(90deg, rgba(124,58,237,0.02), rgba(6,182,212,0.02));
+}
+.brand-lockup{display:flex;gap:12px;align-items:center}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent-primary),var(--accent-secondary));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text-primary);box-shadow:0 6px 18px rgba(124,58,237,0.12)}
+.brand-title{font-weight:700;font-size:16px}
+.brand-tag{font-size:12px;color:var(--text-muted)}
+
+/* Primary nav button */
+.primary-nav-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:transparent;border:1px solid transparent;color:var(--text-primary);transition:all .18s}
+.primary-nav-btn:hover{background:var(--bg-hover);border-color:var(--border-light)}
+
+/* Action button */
+.action-btn{padding:8px 10px;border-radius:10px;background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text-primary);transition:all .18s}
+.action-btn:hover{background:var(--bg-hover)}
+.action-btn.primary{background:linear-gradient(90deg,var(--accent-primary),var(--accent-primary-hover));border-color:transparent;color:white}
+
+/* Toolbar buttons */
+.toolbar-btn{@apply p-2 rounded-lg transition-all}
+.toolbar-btn:hover{background:var(--bg-hover)}
+.toolbar-btn.tool-active{background:linear-gradient(90deg,var(--accent-primary),var(--accent-primary-hover));box-shadow:0 6px 18px rgba(124,58,237,0.12);color:white}
+
+/* Properties panel */
+.properties-panel{width:320px;padding:14px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:14px}
+.layers-panel{width:260px;padding:12px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:12px}
+.ai-menu{padding:12px;background:linear-gradient(135deg, rgba(124,58,237,0.06), rgba(6,182,212,0.04));border:1px solid var(--border);border-radius:14px}
+
+/* Sliders */
+input[type="range"]{accent-color:var(--accent-primary)}
+
+/* Tooltips */
+.tooltip{font-size:12px;background:rgba(10,10,12,0.9);color:var(--text-secondary);padding:6px;border-radius:6px}
+
+/* Responsive layout helpers */
+@media (max-width: 900px){
+  .properties-panel{display:none}
+}
+
+@media (max-width: 640px){
+  .left-tools-wrap{display:none}
+}
+
+.mobile-bottom-toolbar{display:none}
+@media (max-width: 640px){
+  .mobile-bottom-toolbar{display:block}
+}
+
+.mobile-bottom-toolbar .action-btn{border-radius:12px;padding:8px 10px;font-size:13px}
